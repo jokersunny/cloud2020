@@ -2,6 +2,8 @@ package com.atguigu.springcloud.controller;
 
 import com.atguigu.springcloud.service.PaymentHystrixService;
 import com.netflix.hystrix.contrib.javanica.annotation.DefaultProperties;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,11 +28,19 @@ public class OrderHystirxController {
         return result;
     }
 
+    //    @GetMapping("/consumer/payment/hystrix/timeout/{id}")
+//    public String paymentInfo_TimeOut(@PathVariable("id") Integer id){
+//        String result = paymentHystrixService.paymentInfo_TimeOut(id);
+//        return result;
+//    }
+
     @GetMapping("/consumer/payment/hystrix/timeout/{id}")
-//    @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod", commandProperties = {
-//            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value =
-//                    "5000")
-//    })
+    //多个HystrixCommand  配置了就走自己配置的额，没有配置邹全局的和默认的
+    @HystrixCommand(fallbackMethod = "paymentTimeOutFallbackMethod", commandProperties = {
+            @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value =
+                    "3500")
+    })
+    //@HystrixCommand
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id) {
        // int age = 10 / 0;
         String result = paymentHystrixService.paymentInfo_TimeOut(id);
