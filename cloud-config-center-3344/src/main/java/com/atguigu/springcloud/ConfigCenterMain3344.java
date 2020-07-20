@@ -10,6 +10,7 @@ import org.springframework.cloud.config.server.EnableConfigServer;
  */
 @SpringBootApplication
 @EnableConfigServer
+//默认读取master分支
 public class ConfigCenterMain3344
 {
     public static void main(String[] args) {
