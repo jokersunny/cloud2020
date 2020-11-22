@@ -29,13 +29,23 @@ public class FlowLimitController
         log.info(Thread.currentThread().getName()+"\t"+"...testB");
         return "------testB";
     }
+    @GetMapping("/testB1")
+    public String testB1()
+    {
+        return "testB1"+testB();
+    }
 
+    @GetMapping("/testA1")
+    public String testA1()
+    {
+        return "testA1"+testA();
+    }
 
     @GetMapping("/testD")
     public String testD()
     {
-//        try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
-//        log.info("testD 测试RT");
+        try { TimeUnit.SECONDS.sleep(1); } catch (InterruptedException e) { e.printStackTrace(); }
+        log.info("testD 测试RT");
 
         log.info("testD 异常比例");
         int age = 10/0;
