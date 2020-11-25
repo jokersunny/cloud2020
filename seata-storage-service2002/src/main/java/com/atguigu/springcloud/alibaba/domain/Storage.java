@@ -5,12 +5,12 @@ import lombok.Data;
 @Data
 public class Storage {
 
-    private Long id;
+    private Integer id;
 
     /**
      * 产品id
      */
-    private Long productId;
+    private Integer productId;
 
     /**
      * 总库存

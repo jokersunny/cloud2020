@@ -3879,6 +3879,11 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 
 ### seata安装:
 
+1.3.0 完全不一样，需要先下载这些脚本，register里面有2部分，一部分注册，是给微服务注册的
+，一部分配置，是给应用使用的，都改成nacos，这样就不要flie.confl，里面的
+修改全部改在ancos.conf.txt里面，运行nacos.config。sh，把这些配置上传到nacos。
+不然你配置读文件，新的文件有不能设置tx-service-group: my_test_tx_group，就坑爹了
+服务端客户端都读nacos，网上写的乱七八糟的，都他妈是坑
 1.  **下载安装seata的安装包**
 
 2.  **修改file.conf**

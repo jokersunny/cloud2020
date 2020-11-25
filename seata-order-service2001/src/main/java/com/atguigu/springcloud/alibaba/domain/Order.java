@@ -4,8 +4,6 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 /**
  * @auther zzyy
  * @create 2020-02-26 15:16
@@ -15,15 +13,15 @@ import java.math.BigDecimal;
 @NoArgsConstructor
 public class Order
 {
-    private Long id;
+    private Integer id;
 
-    private Long userId;
+    private Integer userId;
 
-    private Long productId;
+    private Integer productId;
 
     private Integer count;
 
-    private BigDecimal money;
+    private Integer money;
 
     private Integer status; //订单状态：0：创建中；1：已完结
 }

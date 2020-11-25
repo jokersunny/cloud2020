@@ -4,32 +4,30 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Account {
 
-    private Long id;
+    private Integer id;
 
     /**
      * 用户id
      */
-    private Long userId;
+    private Integer userId;
 
     /**
      * 总额度
      */
-    private BigDecimal total;
+    private Integer total;
 
     /**
      * 已用额度
      */
-    private BigDecimal used;
+    private Integer used;
 
     /**
      * 剩余额度
      */
-    private BigDecimal residue;
+    private Integer residue;
 }
