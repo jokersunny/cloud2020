@@ -3885,6 +3885,9 @@ Nacos默认有自带嵌入式数据库,derby,但是如果做集群模式的话,�
 不然你配置读文件，新的1.3.0文件不能设置tx-service-group: my_test_tx_group，就坑爹了
 服务端客户端都读nacos，网上写的乱七八糟的，都他妈是坑
 db我全部改成了int类型，原来同一个字段在不同库还是不同的类型。。。
+
+1.3.0 service.vgroupMapping.my_test_tx_group=default 这里不要改，0.9是改的
+的application里面 tx-service-group: my_test_tx_group 不是后面的dafault或者自定义名称
 1.  **下载安装seata的安装包**
 
 2.  **修改file.conf**
